@@ -18,4 +18,4 @@ Advanta Africa for the Stage One of A Job Interview
 3. run `npm install && npm run dev`
 4. finally run `php artisan serve`
 
-visit [http://localhost:8888](http://localhost:8888) in your favourite webrowser to preview the App :laugh:
+visit [http://localhost:8888](http://localhost:8888) in your favourite webrowser to preview the App :wink: 
