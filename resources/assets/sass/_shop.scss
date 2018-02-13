@@ -47,8 +47,9 @@ body{
             }
         }
         .favourite {
-            color: #ccc;
+            color: $gray-dark;
             padding: 1rem;
+            transition: all $transition-short;
             &:hover{
                 color: $accent;
             }
@@ -56,5 +57,9 @@ body{
                 font-size: 1.5rem;
             }
         }
+    }
+    .product-description{
+        font-size: 1.4rem;
+        line-height: 1.4;
     }
 }
