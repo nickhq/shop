@@ -2,7 +2,7 @@ body{
     background-position: left top, center 0;
     padding: 6rem 0;
     background-color: #f1f1f1;
-    color: #656565;
+    color: $text-color;
     background-attachment: scroll fixed;
     //background-image: url("/img/overlay.png"), url("/img/bg.jpg");
     background-repeat: repeat, no-repeat;
@@ -13,8 +13,10 @@ body{
     width: 55rem;
     max-width: calc(100% - 6rem);
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: #fcfcfc;
     border-radius: 3px;
+    padding: 1rem;
+    padding-bottom: 3rem;
 }
 
 //*******NAVIGATION BAR**************//
@@ -26,6 +28,7 @@ nav{
     line-height: 3.5rem;
     padding: 0 1.25rem;
    // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+   border-bottom: 1px solid #f0f0f0;
 
     a{
         display: block;
@@ -70,3 +73,80 @@ nav{
     }
 
 }
+//*******CONTENT**************//
+    .cards {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    }
+
+.cards-item {
+    display: flex;
+    padding: 0.5rem;
+    @media(min-width: 40rem) {
+        width: 50%;
+    }
+    @media(min-width: 56rem) {
+        width: calc(33.33% - 2rem);
+    }
+}
+
+.card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-decoration: none;
+    color: $text-color;
+    border: 1px solid #eeeeee;
+        &:hover {
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+        }
+
+    .card-image {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+        position: relative;
+        &::before {
+            content: "";
+            display: block;
+            padding-top: 56.25%; // 16:9 aspect ratio
+        }
+        @media(min-width: 40rem) {
+                &::before {
+                padding-top: 66.6%; // 3:2 aspect ratio
+                }
+            }
+    }
+
+    .card-content {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        padding: 1rem;
+
+        .card-title {
+            color: $gray-dark;
+            font-size: 1.25rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    
+        .card-text {
+            flex: 1 1 auto;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+        }
+    }
+}
+
+
+a:link    {
+    text-decoration:  none;
+} 
