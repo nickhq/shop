@@ -743,7 +743,6 @@ textarea {
 }
 
 .form {
-  position: relative;
   margin: 2rem 0;
 }
 
@@ -751,6 +750,10 @@ textarea {
   color: #aaa;
   z-index: -1;
   letter-spacing: 0.5px;
+}
+
+.form .input-group {
+  position: relative;
 }
 
 .form .input {
@@ -780,6 +783,20 @@ textarea {
 
 .form textarea.input ~ .focus-line {
   bottom: 3px;
+}
+
+.form .message {
+  display: block;
+  font-size: 0.7rem;
+  margin-top: 0.4rem;
+}
+
+.form .message.success {
+  color: #41b883;
+}
+
+.form .message.error {
+  color: #ff3860;
 }
 
 .file-drop-area {

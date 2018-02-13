@@ -197,12 +197,14 @@ textarea{
   }
 
 .form{
-    position: relative;
     margin: 2rem 0;
     label{
         color: #aaa;
         z-index: -1;
         letter-spacing: 0.5px;
+    }
+    .input-group{
+        position: relative;
     }
     .input{
         border: 0;
@@ -231,6 +233,17 @@ textarea{
        &~ .focus-line{
            bottom: 3px;
        }
+    }
+    .message{
+        display: block;
+        font-size: 0.7rem;
+        margin-top: 0.4rem;
+        &.success{
+            color: $success;
+        }
+        &.error{
+            color: $danger;
+        }
     }
 }
 
@@ -278,4 +291,4 @@ textarea{
     &:focus {
       outline: none;
     }
-  }
+}
