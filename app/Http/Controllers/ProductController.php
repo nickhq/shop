@@ -62,7 +62,7 @@ class ProductController extends Controller
 
             $product->save();
 
-            return ['message' => 'done'];
+            return ['id' => $product->id];
         }
 
     }

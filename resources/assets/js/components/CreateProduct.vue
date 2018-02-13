@@ -68,8 +68,8 @@
             validateBeforeSubmit() {
                 this.$validator.validateAll().then((result) => {
                 if (result) {
-               
-                alert('From Submitted!')
+                //TODO: add toast message
+                
                  this.submit()
                 return
                     }
@@ -94,7 +94,6 @@
                
             },
             submit(){
-                console.log(this.name)
                 axios.post('/products',{
                     product_image: this.image,
                     product_name: this.name,
@@ -102,7 +101,9 @@
                     product_description: this.description
 
                     }).then(response => {
-                        console.log(response)
+                        let productId = response.data.id;
+                        
+                        window.location = `/products/${productId}`
                 });
             },
         }
