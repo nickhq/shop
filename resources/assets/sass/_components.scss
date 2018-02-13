@@ -12,7 +12,7 @@ nav{
     a{
         display: block;
         text-decoration: none;
-        color: #bbbbbb;
+        color: $text-color;
         font-weight: 800;
         text-transform: uppercase;
         position: relative;
@@ -22,7 +22,7 @@ nav{
             transition: all 500ms;
         }
         &:hover{
-            color: #555555;
+            color: $gray-dark;
             &::after{
                 width: 100%;
             }
@@ -36,7 +36,7 @@ nav{
             width: 0%;
             content: ' ';
             color: transparent;
-            background: #aaa;
+            background: $primary;
             height: 1px;
         }
     }
@@ -47,7 +47,7 @@ nav{
         display: block;
         height: inherit;
         line-height: inherit;
-        color: #bbbbbb;
+        color: $gray-dark;
         border-bottom: 0;
     }
 

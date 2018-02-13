@@ -523,7 +523,7 @@ nav {
 nav a {
   display: block;
   text-decoration: none;
-  color: #bbbbbb;
+  color: #7e7e7e;
   font-weight: 800;
   text-transform: uppercase;
   position: relative;
@@ -537,7 +537,7 @@ nav a::after {
 }
 
 nav a:hover {
-  color: #555555;
+  color: #3d3d3d;
 }
 
 nav a:hover::after {
@@ -553,7 +553,7 @@ nav a::after {
   width: 0%;
   content: ' ';
   color: transparent;
-  background: #aaa;
+  background: #3498db;
   height: 1px;
 }
 
@@ -566,7 +566,7 @@ nav .logo {
   display: block;
   height: inherit;
   line-height: inherit;
-  color: #bbbbbb;
+  color: #3d3d3d;
   border-bottom: 0;
 }
 
