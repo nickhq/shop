@@ -12,7 +12,7 @@
         <div class="form">
             <div class="input-group">
                 <input type="number" name="price" id="price" class="input" placeholder="Product Price"
-            v-validate="'required|digits:2'"
+            v-validate="'required|numeric'"
             v-model="price">
             <span class="focus-line"></span>
             </div>
@@ -23,11 +23,11 @@
         <div class="form file-drop-area">
             
             <span class="btn btn-file">Choose files</span>
-            <span class="file-msg js-set-number">or drag and drop files here</span>
             <input name="image" class="input file-input" type="file" 
             v-on:change="onFileChange"
             accept="image/*"
             v-validate="'required|image'">
+            <img :src="image" class="image">
         <span v-show="errors.has('image')" class="message error">{{ errors.first('image') }}</span>
         </div>
             
@@ -68,28 +68,49 @@
             validateBeforeSubmit() {
                 this.$validator.validateAll().then((result) => {
                 if (result) {
-                // eslint-disable-next-line
-                alert('From Submitted!');
-                return;
+               
+                alert('From Submitted!')
+                 this.submit()
+                return
                     }
 
-                alert('Correct them errors!');
-                });
+                alert('Correct them errors!')
+                })
             },
             onFileChange(e) {
-                let files = e.target.files;
+                let files = e.target.files
                 if (!files.length)
-                    return;
-                this.readFile(files[0]);
+                    return
+
+                this.readFile(files[0])
             },
             readFile(file) {
-                let reader = new FileReader();
+                let reader = new FileReader()
                 reader.onload = (e) => {
-                    this.image = e.target.result;
+                    this.image = e.target.result
+                    
                 };
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(file)
+               
             },
-          
+            submit(){
+                console.log(this.name)
+                axios.post('/products',{
+                    product_image: this.image,
+                    product_name: this.name,
+                    product_price: this.price,
+                    product_description: this.description
+
+                    }).then(response => {
+                        console.log(response)
+                });
+            },
         }
     }
 </script>
+<style scooped>
+.image{
+    max-width: 100%;
+    max-height: 100px;
+}
+</style>
