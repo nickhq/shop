@@ -1,0 +1,12 @@
+.to-right{
+    float: right;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+a:link    {
+    text-decoration:  none;
+} 

@@ -10,9 +10,9 @@
             </h1> 
         
 </div>
-<div class="cards">
+<div class="row">
     @for ($i = 0; $i < 10; $i++)
-    <a href="#" class="cards-item">
+    <a href="{{ route('products.show', ['id' => $i]) }}" class="col">
         <div class="card">
             <div class="card-image" style=" background-image: url(https://unsplash.it/800/600?image=82);">
             </div>
