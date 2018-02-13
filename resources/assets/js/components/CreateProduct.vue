@@ -1,9 +1,10 @@
 <template>
-    <form action="/products" method="post">
+    <form action="/products" method="post" v-on:submit="validateBeforeSubmit">
         <div class="form">
            <div class="input-group">
                 <input type="text" name="name" id="name" class="input" placeholder="Product Name"
-                v-validate="'required'">
+                v-validate="'required'"
+                v-model="name">
                 <span class="focus-line"></span>
            </div>
            <div class="message error">{{ errors.first('name') }}</div>
@@ -11,7 +12,8 @@
         <div class="form">
             <div class="input-group">
                 <input type="number" name="price" id="price" class="input" placeholder="Product Price"
-            v-validate="'required|digits:2'">
+            v-validate="'required|digits:2'"
+            v-model="price">
             <span class="focus-line"></span>
             </div>
             <span class="message error" v-show="errors.has('price')">{{ errors.first('price') }}</span>
@@ -28,7 +30,7 @@
                 <textarea type="text" name="description" id="description" rows="5" class="input" 
                 placeholder="Briefly describe the product..."
                 v-validate="'required|min:30'"
-               ></textarea>
+                v-model="description"></textarea>
                 <span class="focus-line"></span>
             </div>
             <span class="message error" v-show="errors.has('description')">{{ errors.first('description') }}</span>
@@ -45,8 +47,29 @@
 
     Vue.use(VeeValidate);
     export default {
+        data(){
+            return{
+                name: '',
+                price: '',
+                image: null,
+                description: ''
+            }
+        },
         mounted() {
             console.log('Component mounted.')
+        },
+        methods:{
+            validateBeforeSubmit() {
+                this.$validator.validateAll().then((result) => {
+                if (result) {
+                // eslint-disable-next-line
+                alert('From Submitted!');
+                return;
+                    }
+
+                alert('Correct them errors!');
+                });
+            }
         }
     }
 </script>

@@ -32810,14 +32810,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
 
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_vee_validate__["a" /* default */]);
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            name: '',
+            price: '',
+            image: null,
+            description: ''
+        };
+    },
     mounted: function mounted() {
         console.log('Component mounted.');
+    },
+
+    methods: {
+        validateBeforeSubmit: function validateBeforeSubmit() {
+            this.$validator.validateAll().then(function (result) {
+                if (result) {
+                    // eslint-disable-next-line
+                    alert('From Submitted!');
+                    return;
+                }
+
+                alert('Correct them errors!');
+            });
+        }
     }
 });
 
@@ -32829,122 +32853,174 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", { attrs: { action: "/products", method: "post" } }, [
-    _c("div", { staticClass: "form" }, [
-      _c("div", { staticClass: "input-group" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "validate",
-              rawName: "v-validate",
-              value: "required",
-              expression: "'required'"
+  return _c(
+    "form",
+    {
+      attrs: { action: "/products", method: "post" },
+      on: { submit: _vm.validateBeforeSubmit }
+    },
+    [
+      _c("div", { staticClass: "form" }, [
+        _c("div", { staticClass: "input-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required",
+                expression: "'required'"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.name,
+                expression: "name"
+              }
+            ],
+            staticClass: "input",
+            attrs: {
+              type: "text",
+              name: "name",
+              id: "name",
+              placeholder: "Product Name"
+            },
+            domProps: { value: _vm.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.name = $event.target.value
+              }
             }
-          ],
-          staticClass: "input",
-          attrs: {
-            type: "text",
-            name: "name",
-            id: "name",
-            placeholder: "Product Name"
-          }
-        }),
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "focus-line" })
+        ]),
         _vm._v(" "),
-        _c("span", { staticClass: "focus-line" })
+        _c("div", { staticClass: "message error" }, [
+          _vm._v(_vm._s(_vm.errors.first("name")))
+        ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "message error" }, [
-        _vm._v(_vm._s(_vm.errors.first("name")))
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "form" }, [
-      _c("div", { staticClass: "input-group" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "validate",
-              rawName: "v-validate",
-              value: "required|digits:2",
-              expression: "'required|digits:2'"
+      _c("div", { staticClass: "form" }, [
+        _c("div", { staticClass: "input-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required|digits:2",
+                expression: "'required|digits:2'"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.price,
+                expression: "price"
+              }
+            ],
+            staticClass: "input",
+            attrs: {
+              type: "number",
+              name: "price",
+              id: "price",
+              placeholder: "Product Price"
+            },
+            domProps: { value: _vm.price },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.price = $event.target.value
+              }
             }
-          ],
-          staticClass: "input",
-          attrs: {
-            type: "number",
-            name: "price",
-            id: "price",
-            placeholder: "Product Price"
-          }
-        }),
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "focus-line" })
+        ]),
         _vm._v(" "),
-        _c("span", { staticClass: "focus-line" })
+        _c(
+          "span",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.errors.has("price"),
+                expression: "errors.has('price')"
+              }
+            ],
+            staticClass: "message error"
+          },
+          [_vm._v(_vm._s(_vm.errors.first("price")))]
+        )
       ]),
       _vm._v(" "),
-      _c(
-        "span",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.errors.has("price"),
-              expression: "errors.has('price')"
+      _c("label", { attrs: { for: "file" } }, [_vm._v("Product Image")]),
+      _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "form" }, [
+        _c("div", { staticClass: "input-group" }, [
+          _c("textarea", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required|min:30",
+                expression: "'required|min:30'"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.description,
+                expression: "description"
+              }
+            ],
+            staticClass: "input",
+            attrs: {
+              type: "text",
+              name: "description",
+              id: "description",
+              rows: "5",
+              placeholder: "Briefly describe the product..."
+            },
+            domProps: { value: _vm.description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.description = $event.target.value
+              }
             }
-          ],
-          staticClass: "message error"
-        },
-        [_vm._v(_vm._s(_vm.errors.first("price")))]
-      )
-    ]),
-    _vm._v(" "),
-    _c("label", { attrs: { for: "file" } }, [_vm._v("Product Image")]),
-    _vm._v(" "),
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "form" }, [
-      _c("div", { staticClass: "input-group" }, [
-        _c("textarea", {
-          directives: [
-            {
-              name: "validate",
-              rawName: "v-validate",
-              value: "required|min:30",
-              expression: "'required|min:30'"
-            }
-          ],
-          staticClass: "input",
-          attrs: {
-            type: "text",
-            name: "description",
-            id: "description",
-            rows: "5",
-            placeholder: "Briefly describe the product..."
-          }
-        }),
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "focus-line" })
+        ]),
         _vm._v(" "),
-        _c("span", { staticClass: "focus-line" })
+        _c(
+          "span",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.errors.has("description"),
+                expression: "errors.has('description')"
+              }
+            ],
+            staticClass: "message error"
+          },
+          [_vm._v(_vm._s(_vm.errors.first("description")))]
+        )
       ]),
       _vm._v(" "),
-      _c(
-        "span",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.errors.has("description"),
-              expression: "errors.has('description')"
-            }
-          ],
-          staticClass: "message error"
-        },
-        [_vm._v(_vm._s(_vm.errors.first("description")))]
-      )
-    ]),
-    _vm._v(" "),
-    _vm._m(1)
-  ])
+      _vm._m(1)
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
