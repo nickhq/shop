@@ -32806,6 +32806,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -32825,9 +32829,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("form", { attrs: { action: "#", method: "post" } }, [
-    _vm._m(0),
-    _vm._v(" "),
+  return _c("form", { attrs: { action: "/products", method: "post" } }, [
     _c("div", { staticClass: "form" }, [
       _c("div", { staticClass: "input-group" }, [
         _c("input", {
@@ -32835,48 +32837,14 @@ var render = function() {
             {
               name: "validate",
               rawName: "v-validate",
-              value: "required|email",
-              expression: "'required|email'"
+              value: "required",
+              expression: "'required'"
             }
           ],
           staticClass: "input",
           attrs: {
-            type: "number",
-            name: "product_price",
-            id: "price",
-            placeholder: "Product Price"
-          }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "focus-line" })
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "message error" }, [
-        _vm._v("This is a message")
-      ])
-    ]),
-    _vm._v(" "),
-    _c("label", { attrs: { for: "file" } }, [_vm._v("Product Image")]),
-    _vm._v(" "),
-    _vm._m(1),
-    _vm._v(" "),
-    _vm._m(2),
-    _vm._v(" "),
-    _vm._m(3)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form" }, [
-      _c("div", { staticClass: "input-group" }, [
-        _c("input", {
-          staticClass: "input",
-          attrs: {
             type: "text",
-            name: "product_name",
+            name: "name",
             id: "name",
             placeholder: "Product Name"
           }
@@ -32885,9 +32853,100 @@ var staticRenderFns = [
         _c("span", { staticClass: "focus-line" })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "message success" }, [_vm._v("A Nice message")])
-    ])
-  },
+      _c("div", { staticClass: "message error" }, [
+        _vm._v(_vm._s(_vm.errors.first("name")))
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "form" }, [
+      _c("div", { staticClass: "input-group" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "validate",
+              rawName: "v-validate",
+              value: "required|digits:2",
+              expression: "'required|digits:2'"
+            }
+          ],
+          staticClass: "input",
+          attrs: {
+            type: "number",
+            name: "price",
+            id: "price",
+            placeholder: "Product Price"
+          }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "focus-line" })
+      ]),
+      _vm._v(" "),
+      _c(
+        "span",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.errors.has("price"),
+              expression: "errors.has('price')"
+            }
+          ],
+          staticClass: "message error"
+        },
+        [_vm._v(_vm._s(_vm.errors.first("price")))]
+      )
+    ]),
+    _vm._v(" "),
+    _c("label", { attrs: { for: "file" } }, [_vm._v("Product Image")]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "form" }, [
+      _c("div", { staticClass: "input-group" }, [
+        _c("textarea", {
+          directives: [
+            {
+              name: "validate",
+              rawName: "v-validate",
+              value: "required|min:30",
+              expression: "'required|min:30'"
+            }
+          ],
+          staticClass: "input",
+          attrs: {
+            type: "text",
+            name: "description",
+            id: "description",
+            rows: "5",
+            placeholder: "Briefly describe the product..."
+          }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "focus-line" })
+      ]),
+      _vm._v(" "),
+      _c(
+        "span",
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm.errors.has("description"),
+              expression: "errors.has('description')"
+            }
+          ],
+          staticClass: "message error"
+        },
+        [_vm._v(_vm._s(_vm.errors.first("description")))]
+      )
+    ]),
+    _vm._v(" "),
+    _vm._m(1)
+  ])
+}
+var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -32901,33 +32960,8 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("input", {
         staticClass: "input file-input",
-        attrs: { name: "product_image", type: "file" }
+        attrs: { name: "image", type: "file" }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form" }, [
-      _c("div", { staticClass: "input-group" }, [
-        _c("textarea", {
-          staticClass: "input",
-          attrs: {
-            type: "text",
-            name: "product_description",
-            id: "description",
-            rows: "5",
-            placeholder: "Briefly describe the product..."
-          }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "focus-line" })
-      ]),
-      _vm._v(" "),
-      _c("span", { staticClass: "message error" }, [
-        _vm._v("Am writting something")
-      ])
     ])
   },
   function() {
