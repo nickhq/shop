@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
+use Intervention\Image\ImageManagerStatic as Image;
+
+
 
 class ProductController extends Controller
 {
@@ -37,7 +42,7 @@ class ProductController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'product_name' => 'required',
-            'product_image' => 'required|image64:jpeg,jpg,png,svg,bmp,gif',
+            'product_image' => 'required|image64:image/jpeg,image/png',
             'product_description' => 'required|min:30',
             'product_price' => 'required|numeric',
         ]);
@@ -47,7 +52,7 @@ class ProductController extends Controller
         } else {
             $imageData = $request->get('product_image');
             $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($imageData, 0, strpos($imageData, ';')))[1])[1];
-            Image::make($request->get('image'))->save(public_path('uploads/').$fileName);
+            Image::make($request->get('product_image'))->save(public_path('uploads/').$fileName);
             return response()->json(['error'=>false]);
         }
 
