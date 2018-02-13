@@ -53,10 +53,18 @@ class ProductController extends Controller
             $imageData = $request->get('product_image');
             $fileName = Carbon::now()->timestamp . '_' . uniqid() . '.' . explode('/', explode(':', substr($imageData, 0, strpos($imageData, ';')))[1])[1];
             Image::make($request->get('product_image'))->save(public_path('uploads/').$fileName);
-            return response()->json(['error'=>false]);
+            
+            $product = new Product();
+            $product->name = $request->input('product_name');
+            $product->image = $fileName;
+            $product->description = $request->input('product_description');
+            $product->price = $request->input('product_price');
+
+            $product->save();
+
+            return ['message' => 'done'];
         }
 
-        return $request->all();
     }
 
     /**
