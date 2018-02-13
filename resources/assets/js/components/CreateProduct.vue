@@ -1,5 +1,5 @@
 <template>
-    <form action="/products" method="post" v-on:submit="validateBeforeSubmit">
+    <form action="/products" method="post" v-on:submit.prevent="validateBeforeSubmit">
         <div class="form">
            <div class="input-group">
                 <input type="text" name="name" id="name" class="input" placeholder="Product Name"
@@ -18,13 +18,19 @@
             </div>
             <span class="message error" v-show="errors.has('price')">{{ errors.first('price') }}</span>
         </div>
+
         <label for="file">Product Image</label>
         <div class="form file-drop-area">
             
             <span class="btn btn-file">Choose files</span>
             <span class="file-msg js-set-number">or drag and drop files here</span>
-            <input name="image" class="input file-input" type="file">
+            <input name="image" class="input file-input" type="file" 
+            v-on:change="onFileChange"
+            accept="image/*"
+            v-validate="'required|image'">
+        <span v-show="errors.has('image')" class="message error">{{ errors.first('image') }}</span>
         </div>
+            
         <div class="form">
             <div class="input-group">
                 <textarea type="text" name="description" id="description" rows="5" class="input" 
@@ -69,7 +75,21 @@
 
                 alert('Correct them errors!');
                 });
-            }
+            },
+            onFileChange(e) {
+                let files = e.target.files;
+                if (!files.length)
+                    return;
+                this.readFile(files[0]);
+            },
+            readFile(file) {
+                let reader = new FileReader();
+                reader.onload = (e) => {
+                    this.image = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            },
+          
         }
     }
 </script>

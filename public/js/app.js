@@ -32812,6 +32812,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -32841,6 +32847,20 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_vee_
 
                 alert('Correct them errors!');
             });
+        },
+        onFileChange: function onFileChange(e) {
+            var files = e.target.files;
+            if (!files.length) return;
+            this.readFile(files[0]);
+        },
+        readFile: function readFile(file) {
+            var _this = this;
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                _this.image = e.target.result;
+            };
+            reader.readAsDataURL(file);
         }
     }
 });
@@ -32857,7 +32877,12 @@ var render = function() {
     "form",
     {
       attrs: { action: "/products", method: "post" },
-      on: { submit: _vm.validateBeforeSubmit }
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          _vm.validateBeforeSubmit($event)
+        }
+      }
     },
     [
       _c("div", { staticClass: "form" }, [
@@ -32960,7 +32985,43 @@ var render = function() {
       _vm._v(" "),
       _c("label", { attrs: { for: "file" } }, [_vm._v("Product Image")]),
       _vm._v(" "),
-      _vm._m(0),
+      _c("div", { staticClass: "form file-drop-area" }, [
+        _c("span", { staticClass: "btn btn-file" }, [_vm._v("Choose files")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "file-msg js-set-number" }, [
+          _vm._v("or drag and drop files here")
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "validate",
+              rawName: "v-validate",
+              value: "required|image",
+              expression: "'required|image'"
+            }
+          ],
+          staticClass: "input file-input",
+          attrs: { name: "image", type: "file", accept: "image/*" },
+          on: { change: _vm.onFileChange }
+        }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.errors.has("image"),
+                expression: "errors.has('image')"
+              }
+            ],
+            staticClass: "message error"
+          },
+          [_vm._v(_vm._s(_vm.errors.first("image")))]
+        )
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "form" }, [
         _c("div", { staticClass: "input-group" }, [
@@ -33018,28 +33079,11 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(1)
+      _vm._m(0)
     ]
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form file-drop-area" }, [
-      _c("span", { staticClass: "btn btn-file" }, [_vm._v("Choose files")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "file-msg js-set-number" }, [
-        _vm._v("or drag and drop files here")
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "input file-input",
-        attrs: { name: "image", type: "file" }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
