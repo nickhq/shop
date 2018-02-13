@@ -13,9 +13,12 @@ Advanta Africa for the Stage One of A Job Interview
 
 ## Setting Up
 > Ensure that you have PHP(obviously), composer, mysql and NodeJs installed on your computer.
-1. Create a database named `shop`
-2. run `php artisan migrate`
-3. run `npm install && npm run dev`
-4. finally run `php artisan serve`
+1. Clone or download this repository
+2. Copy the contents of `.env.example` to `.env`
+3. Modify the database credentials **DB_USERNAME** and **DB_PASSWORD** as required by your database instance.
+4. Create a database named `shop`
+5. run `php artisan migrate`
+6. run `npm install && npm run dev`
+7. finally run `php artisan serve`
 
 visit [http://localhost:8888](http://localhost:8888) in your favourite webrowser to preview the App :wink: 
