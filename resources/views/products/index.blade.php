@@ -14,7 +14,7 @@
     @for ($i = 0; $i < 10; $i++)
     <a href="{{ route('products.show', ['id' => $i]) }}" class="col">
         <div class="card">
-            <div class="card-image" style=" background-image: url(https://unsplash.it/800/600?image=82);">
+            <div class="card-image" style=" background-image: url(https://unsplash.it/1200/600?image=82);">
             </div>
             <div class="card-content">
                 <button class="card-fab fab"><i class="mdi mdi-cart-plus"></i></button>

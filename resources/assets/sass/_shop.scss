@@ -27,3 +27,34 @@ body{
         margin: 0 1rem;
     }
 }
+
+.product{
+   // text-align: center;
+
+    .product-image img{
+        max-width: 100%;
+        //height: 3rem;
+    }
+
+    .product-meta{
+        .price{
+            font-size: 1.3rem;
+            padding: 0.5rem;
+        }
+        .btn{
+            &.mdi{
+                font-size: 1.5rem;
+            }
+        }
+        .favourite {
+            color: #ccc;
+            padding: 1rem;
+            &:hover{
+                color: $accent;
+            }
+            .mdi{
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
