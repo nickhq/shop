@@ -15,13 +15,17 @@ I use [VS Code](https://code.visualstudio.com) as my primary editor
 
 ## Setting Up
 > Ensure that you have PHP(obviously), composer, mysql and NodeJs installed on your computer.
+Follow this steps in order to run this project locally.
+
 1. Clone or download this repository
 2. Copy the contents of `.env.example` to `.env`
 3. Modify the database credentials **DB_USERNAME** and **DB_PASSWORD** as required by your database instance.
-4. Generate the App Key by running `php artisan key:generate`
-4. Create a database named `shop`
-5. run `php artisan migrate`
-6. run `npm install && npm run dev`
-7. finally run `php artisan serve`
+4. Install larave dependencies by running `composer install` on the root project folder
+5. Generate the App Key by running `php artisan key:generate`
+6. Create a database named `shop`
+7. run `php artisan migrate`
+8. Seed the database to in order to show the first initial files by running `php artisan db:seed`
+9. run `npm install && npm run dev` to install npm modules
+10. finally run `php artisan serve`
 
 visit [http://localhost:8888](http://localhost:8888) in your favourite webrowser to preview the App :wink: 
