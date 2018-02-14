@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -6,8 +5,8 @@
  */
 
 require('./bootstrap');
-import  CreateProduct from './components/CreateProduct';
-import  EditProduct from './components/EditProduct';
+import CreateProduct from './components/CreateProduct';
+import EditProduct from './components/EditProduct';
 
 window.Vue = require('vue');
 

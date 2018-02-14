@@ -11793,7 +11793,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_CreateProduct___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_CreateProduct__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_EditProduct__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_EditProduct___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_EditProduct__);
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -32421,7 +32420,7 @@ exports = module.exports = __webpack_require__(38)(false);
 
 
 // module
-exports.push([module.i, "\n.image{\n    max-width: 100%;\n    max-height: 100px;\n}\n", ""]);
+exports.push([module.i, "\n.image {\n    max-width: 100%;\n    max-height: 100px;\n}\n", ""]);
 
 // exports
 
@@ -40358,7 +40357,7 @@ var render = function() {
             }
           ],
           staticClass: "input file-input",
-          attrs: { name: "image", type: "file", accept: "image/*" },
+          attrs: { id: "file", name: "image", type: "file", accept: "image/*" },
           on: { change: _vm.onFileChange }
         }),
         _vm._v(" "),
@@ -40557,7 +40556,7 @@ exports = module.exports = __webpack_require__(38)(false);
 
 
 // module
-exports.push([module.i, "\n.image{\n    max-width: 100%;\n    max-height: 100px;\n}\n.btn-disabled{\n    background-color: #ccc;\n    cursor: not-allowed !important;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n}\n", ""]);
+exports.push([module.i, "\n.image {\n    max-width: 100%;\n    max-height: 100px;\n}\n.btn-disabled {\n    background-color: #ccc;\n    cursor: not-allowed !important;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n}\n", ""]);
 
 // exports
 
@@ -40571,6 +40570,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vee_validate__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+//
 //
 //
 //
@@ -40826,6 +40826,7 @@ var render = function() {
           attrs: {
             name: "image",
             type: "file",
+            id: "file",
             accept: "image/*",
             disabled: ""
           }
@@ -40853,7 +40854,6 @@ var render = function() {
             ],
             staticClass: "input",
             attrs: {
-              type: "text",
               name: "description",
               id: "description",
               rows: "5",

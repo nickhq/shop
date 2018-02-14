@@ -1,16 +1,17 @@
-.to-right{
-    float: right;
+.to-right {
+  float: right;
 }
+
 .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+  content: "";
+  clear: both;
+  display: table;
 }
 
-a:link    {
-    text-decoration:  none;
-} 
+a:link {
+  text-decoration: none;
+}
 
-.form-inline{
-    display: inline;
+.form-inline {
+  display: inline;
 }

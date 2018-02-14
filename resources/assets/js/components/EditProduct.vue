@@ -1,40 +1,41 @@
 <template>
     <form action="/products" method="post" v-on:submit.prevent="validateBeforeSubmit">
         <div class="form">
-           <div class="input-group">
+            <div class="input-group">
                 <input type="text" name="name" id="name" class="input" placeholder="Product Name"
-                v-validate="'required'"
-                v-model="name">
+                       v-validate="'required'"
+                       v-model="name">
                 <span class="focus-line"></span>
-           </div>
-           <div class="message error">{{ errors.first('name') }}</div>
+            </div>
+            <div class="message error">{{ errors.first('name') }}</div>
         </div>
         <div class="form">
             <div class="input-group">
                 <input type="number" name="price" id="price" class="input" placeholder="Product Price"
-            v-validate="'required|numeric'"
-            v-model="price">
-            <span class="focus-line"></span>
+                       v-validate="'required|numeric'"
+                       v-model="price">
+                <span class="focus-line"></span>
             </div>
             <span class="message error" v-show="errors.has('price')">{{ errors.first('price') }}</span>
         </div>
 
         <label for="file">Product Image</label>
         <div class="form file-drop-area">
-            
+
             <span class="btn btn-disabled btn-file">Choose files</span>
-            <input name="image" class="input file-input" type="file" 
-            accept="image/*"
-           disabled>
+            <input name="image" class="input file-input" type="file"
+                   id="file"
+                   accept="image/*"
+                   disabled>
             <img :src="image" class="image">
         </div>
-            
+
         <div class="form">
             <div class="input-group">
-                <textarea type="text" name="description" id="description" rows="5" class="input" 
-                placeholder="Briefly describe the product..."
-                v-validate="'required|min:30'"
-                v-model="description"></textarea>
+                <textarea name="description" id="description" rows="5" class="input"
+                          placeholder="Briefly describe the product..."
+                          v-validate="'required|min:30'"
+                          v-model="description"></textarea>
                 <span class="focus-line"></span>
             </div>
             <span class="message error" v-show="errors.has('description')">{{ errors.first('description') }}</span>
@@ -51,8 +52,8 @@
 
     Vue.use(VeeValidate);
     export default {
-        data(){
-            return{
+        data() {
+            return {
                 name: '',
                 price: '',
                 image: null,
@@ -66,17 +67,17 @@
             //TODO: show a loading progress
             this.setData()
         },
-        methods:{
+        methods: {
             validateBeforeSubmit() {
                 this.$validator.validateAll().then((result) => {
-                if (result) {
-                //TODO: add toast message
-                
-                 this.submit()
-                return
+                    if (result) {
+                        //TODO: add toast message
+
+                        this.submit()
+                        return
                     }
 
-                alert('Correct them errors!')
+                    alert('Correct them errors!')
                 })
             },
             onFileChange(e) {
@@ -90,25 +91,25 @@
                 let reader = new FileReader()
                 reader.onload = (e) => {
                     this.image = e.target.result
-                    
+
                 };
                 reader.readAsDataURL(file)
-               
+
             },
-            submit(){
-                axios.put(`/products/${this.product.id}`,{
+            submit() {
+                axios.put(`/products/${this.product.id}`, {
                     product_image: this.image,
                     product_name: this.name,
                     product_price: this.price,
                     product_description: this.description
 
-                    }).then(response => {
-                       
-                        console.log(response.data);
-                        window.location = `/products/${this.product.id}`
+                }).then(response => {
+
+                    console.log(response.data);
+                    window.location = `/products/${this.product.id}`
                 });
             },
-            setData(){
+            setData() {
                 console.log(this.product.id)
                 this.name = this.product.name;
                 this.price = this.product.price;
@@ -119,13 +120,14 @@
     }
 </script>
 <style scooped>
-.image{
-    max-width: 100%;
-    max-height: 100px;
-}
-.btn-disabled{
-    background-color: #ccc;
-    cursor: not-allowed !important;
-    box-shadow: none;
-}
+    .image {
+        max-width: 100%;
+        max-height: 100px;
+    }
+
+    .btn-disabled {
+        background-color: #ccc;
+        cursor: not-allowed !important;
+        box-shadow: none;
+    }
 </style>

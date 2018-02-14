@@ -4,10 +4,10 @@
 
 @section('content')
 
-<h1>Edit Product Details</h1>
+    <h1>Edit Product Details</h1>
 
-<div id="app" class="create-form">
-    <edit-product v-bind:product="{{ $product }}">
-</div>  
+    <div id="app" class="create-form">
+        <edit-product v-bind:product="{{ $product }}"></edit-product>
+    </div>
 
 @endsection

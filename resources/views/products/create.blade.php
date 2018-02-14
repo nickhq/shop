@@ -4,10 +4,10 @@
 
 @section('content')
 
-<h1>Add A New Product</h1>
+    <h1>Add A New Product</h1>
 
-<div id="app" class="create-form">
-    <create-product>
-</div>
+    <div id="app" class="create-form">
+        <create-product></create-product>
+    </div>
 
 @endsection

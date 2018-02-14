@@ -1,186 +1,187 @@
 //*******NAVIGATION BAR**************//
-nav{
-    display: flex;
-    justify-content: space-between;
-    height: 3.5rem;
-    line-height: 3.5rem;
-    padding: 0 1.25rem;
-    padding-bottom: 2rem;
-   // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-   border-bottom: 1px solid #f0f0f0;
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  padding: 0 1.25rem;
+  padding-bottom: 2rem;
+  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-bottom: 1px solid #f0f0f0;
 
-    a{
-        display: block;
-        text-decoration: none;
-        color: $text-color;
-        font-weight: 800;
-        text-transform: uppercase;
-        position: relative;
-        &,
-        &::before,
-        &::after{
-            transition: all $transition-long;
-        }
-        &:hover{
-            color: $gray-dark;
-            &::after{
-                width: 100%;
-            }
-        }
-        &::after{
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
-            width: 0%;
-            content: ' ';
-            color: transparent;
-            background: $primary;
-            height: 1px;
-        }
+  a {
+    display: block;
+    text-decoration: none;
+    color: $text-color;
+    font-weight: 800;
+    text-transform: uppercase;
+    position: relative;
+    &,
+    &::before,
+    &::after {
+      transition: all $transition-long;
     }
+    &:hover {
+      color: $gray-dark;
+      &::after {
+        width: 100%;
+      }
+    }
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 0%;
+      content: ' ';
+      color: transparent;
+      background: $primary;
+      height: 1px;
+    }
+  }
 
-    .logo{
-        flex-grow: 0;
-        flex-shrink: 1;
-        display: block;
-        height: inherit;
-        line-height: inherit;
-        color: $text-color;
-        border-bottom: 0;
-    }
+  .logo {
+    flex-grow: 0;
+    flex-shrink: 1;
+    display: block;
+    height: inherit;
+    line-height: inherit;
+    color: $text-color;
+    border-bottom: 0;
+  }
 
 }
+
 //********Floating buttons*********//
-.fab{
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-    font-size: 1rem;
-    outline: 0;
+.fab {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  font-size: 1rem;
+  outline: 0;
+  display: inline-block;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  width: 3.0rem;
+  height: 3.0rem;
+  line-height: 3.0rem;
+  padding: 0;
+  background-color: $primary;
+  border-radius: 50%;
+  transition: background-color .3s;
+  cursor: pointer;
+  vertical-align: middle;
+  border: none;
+
+  &:hover {
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+    background-color: darken($color: $primary, $amount: 10%);
+  }
+  &:focus {
+    background-color: darken($color: $primary, $amount: 20%);
+  }
+
+  & i {
+    line-height: inherit;
+    width: inherit;
     display: inline-block;
+    text-align: center;
     color: #fff;
-    position: relative;
-    overflow: hidden;
-    z-index: 2;
-    width: 3.0rem;
-    height: 3.0rem;
-    line-height: 3.0rem;
-    padding: 0;
-    background-color: $primary;
-    border-radius: 50%;
-    transition: background-color .3s;
-    cursor: pointer;
-    vertical-align: middle;
-    border: none;
-
-    &:hover{
-        box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
-        background-color: darken($color: $primary, $amount: 10%);
-    }
-    &:focus{
-        background-color: darken($color: $primary, $amount: 20%);
-    }
-
-    & i{
-        line-height: inherit;
-        width: inherit;
-        display: inline-block;
-        text-align: center;
-        color: #fff;
-        font-size: 1.3rem;
-        line-height: 1.3rem;
-    }
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+  }
 }
 
 //*****BUTTON**********//
-.btn{
-    text-decoration: none;
-    color: #fff;
-    background-color: $primary;
-    text-align: center;
-    letter-spacing: 0.5px;
-    transition: $transition-short ease-out;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: normal;
-    outline: 0;
-    border: none;
-    border-radius: 2px;
-    display: inline-block;
-    height: 36px;
-    line-height: 36px;
-    padding: 0 2rem;
-    text-transform: uppercase;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+.btn {
+  text-decoration: none;
+  color: #fff;
+  background-color: $primary;
+  text-align: center;
+  letter-spacing: 0.5px;
+  transition: $transition-short ease-out;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: normal;
+  outline: 0;
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 
-    &:hover{
-        background-color: lighten($color: $primary, $amount: 10%);
-    }
+  &:hover {
+    background-color: lighten($color: $primary, $amount: 10%);
+  }
 }
 
 //**********CARD*********************************//
 .card {
-    background-color: white;
+  background-color: white;
+  overflow: hidden;
+  text-decoration: none;
+  color: $text-color;
+  border: 1px solid #eeeeee;
+  transition: all $transition-short;
+  height: 100%;
+  &:hover {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     overflow: hidden;
-    text-decoration: none;
-    color: $text-color;
-    border: 1px solid #eeeeee;
-    transition: all $transition-short;
-    height: 100%;
-        &:hover {
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
-        }
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 56.25%; // 16:9 aspect ratio
+    }
+    @media(min-width: 40rem) {
+      &::before {
+        padding-top: 66.6%; // 3:2 aspect ratio
+      }
+    }
+  }
 
-    .card-image {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        overflow: hidden;
-        position: relative;
-        &::before {
-            content: "";
-            display: block;
-            padding-top: 56.25%; // 16:9 aspect ratio
-        }
-        @media(min-width: 40rem) {
-                &::before {
-                padding-top: 66.6%; // 3:2 aspect ratio
-                }
-            }
+  .card-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 1rem;
+    position: relative;
+
+    .card-title {
+      color: $gray-dark;
+      font-size: 1.25rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
-    .card-content {
-        display: flex;
-        flex: 1 1 auto;
-        flex-direction: column;
-        padding: 1rem;
-        position: relative;
-
-        .card-title {
-            color: $gray-dark;
-            font-size: 1.25rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-    
-        .card-text {
-            flex: 1 1 auto;
-            font-size: 0.875rem;
-            line-height: 1.5;
-            margin-bottom: 1.25rem;
-        }
+    .card-text {
+      flex: 1 1 auto;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
     }
+  }
 
-    .card-fab{
-        position: absolute;
-        top: - 1.5rem;
-        right: 0.5rem;
-    }
+  .card-fab {
+    position: absolute;
+    top: - 1.5rem;
+    right: 0.5rem;
+  }
 
-    .card-action{
-        padding: 1rem;
-    }
+  .card-action {
+    padding: 1rem;
+  }
 }
 
 //******FORMS******************//
@@ -188,106 +189,105 @@ nav{
 input[type="text"],
 input[type="number"],
 input[type="file"],
-textarea{
-    color: #333;
-    width: 100%;
-    box-sizing: border-box;
-    letter-spacing: 1px;
+textarea {
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+}
+
+.form {
+  margin: 2rem 0;
+  label {
+    color: #aaa;
+    z-index: -1;
+    letter-spacing: 0.5px;
+  }
+  .input-group {
+    position: relative;
+  }
+  .input {
+    border: 0;
+    padding: 7px 0;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+
+    & ~ .focus-line {
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: $primary;
+      transition: $transition-long;
+    }
+    &:focus ~ .focus-line {
+      width: 100%;
+      transition: $transition-long;
+      left: 0;
+    }
   }
 
-.form{
-    margin: 2rem 0;
-    label{
-        color: #aaa;
-        z-index: -1;
-        letter-spacing: 0.5px;
+  textarea.input {
+    & ~ .focus-line {
+      bottom: 3px;
     }
-    .input-group{
-        position: relative;
+  }
+  .message {
+    display: block;
+    font-size: 0.7rem;
+    margin-top: 0.4rem;
+    &.success {
+      color: $success;
     }
-    .input{
-        border: 0;
-        padding: 7px 0;
-        border-bottom: 1px solid #ccc;
-        outline: none;
-    
-    
-        &~ .focus-line {
-            position: absolute;
-            bottom: 0px;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background-color: $primary;
-            transition: $transition-long;
-        }
-        &:focus ~ .focus-line {
-            width: 100%;
-            transition: $transition-long;
-            left: 0;
-        }
+    &.error {
+      color: $danger;
     }
-
-    textarea.input{
-       &~ .focus-line{
-           bottom: 3px;
-       }
-    }
-    .message{
-        display: block;
-        font-size: 0.7rem;
-        margin-top: 0.4rem;
-        &.success{
-            color: $success;
-        }
-        &.error{
-            color: $danger;
-        }
-    }
+  }
 }
 
 .file-drop-area {
-    border: 1px dashed #ccc;
-    border-radius: 3px;
-    position: relative;
-    margin: 0 auto;
-    padding: 2rem 0;
-    transition: $transition-short;
-    &.is-active {
-      background-color: rgba(204, 204, 204, 0.05);
-    }
+  border: 1px dashed #ccc;
+  border-radius: 3px;
+  position: relative;
+  margin: 0 auto;
+  padding: 2rem 0;
+  transition: $transition-short;
+  &.is-active {
+    background-color: rgba(204, 204, 204, 0.05);
   }
-  
-  .mock-btn {
-    background-color: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 3px;
-    padding: 8px 15px;
-    margin-right: 8px;
-    font-size: 12px;
-    text-transform: uppercase;
+}
+
+.mock-btn {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  padding: 8px 15px;
+  margin-right: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.file-msg {
+  font-size: small;
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  max-width: calc(100% - 130px);
+  vertical-align: middle;
+}
+
+.file-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0;
+  &:focus {
+    outline: none;
   }
-  
-  .file-msg {
-    font-size: small;
-    font-weight: 300;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
-    max-width: calc(100% - 130px);
-    vertical-align: middle;
-  }
-  
-  .file-input {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-    opacity: 0;
-    &:focus {
-      outline: none;
-    }
 }

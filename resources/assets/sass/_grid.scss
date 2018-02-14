@@ -1,14 +1,14 @@
 .row {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
-    &>.col {
-        padding: 0.5rem;
-        @media(min-width: 40rem) {
-            width: 50%;
-        }
-        @media(min-width: 56rem) {
-            width: calc(33.33% - 2rem);
-        }
+  & > .col {
+    padding: 0.5rem;
+    @media(min-width: 40rem) {
+      width: 50%;
     }
+    @media(min-width: 56rem) {
+      width: calc(33.33% - 2rem);
+    }
+  }
 }
