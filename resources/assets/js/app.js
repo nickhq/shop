@@ -7,6 +7,7 @@
 
 require('./bootstrap');
 import  CreateProduct from './components/CreateProduct';
+import  EditProduct from './components/EditProduct';
 
 window.Vue = require('vue');
 
@@ -22,6 +23,7 @@ window.Vue = require('vue');
 const app = new Vue({
     el: '#app',
     components: {
-        'create-product': CreateProduct
+        'create-product': CreateProduct,
+        'edit-product': EditProduct,
     }
 });

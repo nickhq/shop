@@ -14,7 +14,7 @@
             <h1 class="product-title">{{ $product->name }}</h1>
             <div class="product-meta">
                 <span class="price"><b>Ksh</b> {{ $product->price }}</span>
-                <button class="btn">Edit <span class="mdi mdi-pencil"></span></button>
+                <a href="{{ route('products.edit', ['product' => $product->id ]) }}" class="btn">Edit <span class="mdi mdi-pencil"></span></a>
                 <form class="form-inline" action="{{ route('products.destroy', ['id' => $product->id]) }}" method="post">
                     {{ csrf_field() }}
                     {{--  lets pretend that we are sending a DELETE request  --}}

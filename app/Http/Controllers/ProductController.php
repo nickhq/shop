@@ -88,7 +88,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -112,6 +112,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+        //TODO: flash a message
         return redirect()->route('products.index');
     }
 }

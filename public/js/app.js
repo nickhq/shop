@@ -11791,6 +11791,8 @@ module.exports = __webpack_require__(47);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_CreateProduct__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_CreateProduct___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_CreateProduct__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_EditProduct__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_EditProduct___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_EditProduct__);
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -11799,6 +11801,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
  */
 
 __webpack_require__(12);
+
 
 
 window.Vue = __webpack_require__(9);
@@ -11815,7 +11818,8 @@ window.Vue = __webpack_require__(9);
 var app = new Vue({
   el: '#app',
   components: {
-    'create-product': __WEBPACK_IMPORTED_MODULE_0__components_CreateProduct___default.a
+    'create-product': __WEBPACK_IMPORTED_MODULE_0__components_CreateProduct___default.a,
+    'edit-product': __WEBPACK_IMPORTED_MODULE_1__components_EditProduct___default.a
   }
 });
 
@@ -40463,6 +40467,471 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(52)
+}
+var normalizeComponent = __webpack_require__(41)
+/* script */
+var __vue_script__ = __webpack_require__(54)
+/* template */
+var __vue_template__ = __webpack_require__(55)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/EditProduct.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d515bec4", Component.options)
+  } else {
+    hotAPI.reload("data-v-d515bec4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(53);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(39)("df7588c0", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d515bec4\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EditProduct.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-d515bec4\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./EditProduct.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(38)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.image{\n    max-width: 100%;\n    max-height: 100px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vee_validate__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_vee_validate__["a" /* default */]);
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            name: '',
+            price: '',
+            image: null,
+            description: ''
+        };
+    },
+
+    props: ['product'],
+    mounted: function mounted() {
+        console.log('Component mounted.');
+        // load product data when the component is mounted
+        //TODO: show a loading progress
+        this.setData();
+    },
+
+    methods: {
+        validateBeforeSubmit: function validateBeforeSubmit() {
+            var _this = this;
+
+            this.$validator.validateAll().then(function (result) {
+                if (result) {
+                    //TODO: add toast message
+
+                    _this.submit();
+                    return;
+                }
+
+                alert('Correct them errors!');
+            });
+        },
+        onFileChange: function onFileChange(e) {
+            var files = e.target.files;
+            if (!files.length) return;
+
+            this.readFile(files[0]);
+        },
+        readFile: function readFile(file) {
+            var _this2 = this;
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                _this2.image = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        },
+        submit: function submit() {
+            axios.put('/products/' + this.product.id, {
+                product_image: this.image,
+                product_name: this.name,
+                product_price: this.price,
+                product_description: this.description
+
+            }).then(function (response) {
+                var productId = response.data.id;
+
+                window.location = '/products/' + productId;
+            });
+        },
+        setData: function setData() {
+            console.log(this.product);
+            this.name = this.product.name;
+            this.price = this.product.price;
+            this.image = window.location.origin + '/uploads/' + this.product.image;
+            this.description = this.product.description;
+        }
+    }
+});
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      attrs: { action: "/products", method: "post" },
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          _vm.validateBeforeSubmit($event)
+        }
+      }
+    },
+    [
+      _c("div", { staticClass: "form" }, [
+        _c("div", { staticClass: "input-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required",
+                expression: "'required'"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.name,
+                expression: "name"
+              }
+            ],
+            staticClass: "input",
+            attrs: {
+              type: "text",
+              name: "name",
+              id: "name",
+              placeholder: "Product Name"
+            },
+            domProps: { value: _vm.name },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.name = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "focus-line" })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "message error" }, [
+          _vm._v(_vm._s(_vm.errors.first("name")))
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form" }, [
+        _c("div", { staticClass: "input-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required|numeric",
+                expression: "'required|numeric'"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.price,
+                expression: "price"
+              }
+            ],
+            staticClass: "input",
+            attrs: {
+              type: "number",
+              name: "price",
+              id: "price",
+              placeholder: "Product Price"
+            },
+            domProps: { value: _vm.price },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.price = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "focus-line" })
+        ]),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.errors.has("price"),
+                expression: "errors.has('price')"
+              }
+            ],
+            staticClass: "message error"
+          },
+          [_vm._v(_vm._s(_vm.errors.first("price")))]
+        )
+      ]),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "file" } }, [_vm._v("Product Image")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form file-drop-area" }, [
+        _c("span", { staticClass: "btn btn-file" }, [_vm._v("Choose files")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "validate",
+              rawName: "v-validate",
+              value: "required|image",
+              expression: "'required|image'"
+            }
+          ],
+          staticClass: "input file-input",
+          attrs: { name: "image", type: "file", accept: "image/*" },
+          on: { change: _vm.onFileChange }
+        }),
+        _vm._v(" "),
+        _c("img", { staticClass: "image", attrs: { src: _vm.image } }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.errors.has("image"),
+                expression: "errors.has('image')"
+              }
+            ],
+            staticClass: "message error"
+          },
+          [_vm._v(_vm._s(_vm.errors.first("image")))]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form" }, [
+        _c("div", { staticClass: "input-group" }, [
+          _c("textarea", {
+            directives: [
+              {
+                name: "validate",
+                rawName: "v-validate",
+                value: "required|min:30",
+                expression: "'required|min:30'"
+              },
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.description,
+                expression: "description"
+              }
+            ],
+            staticClass: "input",
+            attrs: {
+              type: "text",
+              name: "description",
+              id: "description",
+              rows: "5",
+              placeholder: "Briefly describe the product..."
+            },
+            domProps: { value: _vm.description },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.description = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("span", { staticClass: "focus-line" })
+        ]),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.errors.has("description"),
+                expression: "errors.has('description')"
+              }
+            ],
+            staticClass: "message error"
+          },
+          [_vm._v(_vm._s(_vm.errors.first("description")))]
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form" }, [
+      _c("button", { staticClass: "btn", attrs: { type: "submit" } }, [
+        _vm._v("Save Changes")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d515bec4", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
