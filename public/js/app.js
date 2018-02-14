@@ -40557,7 +40557,7 @@ exports = module.exports = __webpack_require__(38)(false);
 
 
 // module
-exports.push([module.i, "\n.image{\n    max-width: 100%;\n    max-height: 100px;\n}\n", ""]);
+exports.push([module.i, "\n.image{\n    max-width: 100%;\n    max-height: 100px;\n}\n.btn-disabled{\n    background-color: #ccc;\n    cursor: not-allowed !important;\n    -webkit-box-shadow: none;\n            box-shadow: none;\n}\n", ""]);
 
 // exports
 
@@ -40571,8 +40571,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vee_validate__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
-//
-//
 //
 //
 //
@@ -40674,6 +40672,8 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_vee_
             reader.readAsDataURL(file);
         },
         submit: function submit() {
+            var _this3 = this;
+
             axios.put('/products/' + this.product.id, {
                 product_image: this.image,
                 product_name: this.name,
@@ -40681,13 +40681,13 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_vee_
                 product_description: this.description
 
             }).then(function (response) {
-                var productId = response.data.id;
 
-                window.location = '/products/' + productId;
+                console.log(response.data);
+                window.location = '/products/' + _this3.product.id;
             });
         },
         setData: function setData() {
-            console.log(this.product);
+            console.log(this.product.id);
             this.name = this.product.name;
             this.price = this.product.price;
             this.image = window.location.origin + '/uploads/' + this.product.image;
@@ -40817,39 +40817,21 @@ var render = function() {
       _c("label", { attrs: { for: "file" } }, [_vm._v("Product Image")]),
       _vm._v(" "),
       _c("div", { staticClass: "form file-drop-area" }, [
-        _c("span", { staticClass: "btn btn-file" }, [_vm._v("Choose files")]),
+        _c("span", { staticClass: "btn btn-disabled btn-file" }, [
+          _vm._v("Choose files")
+        ]),
         _vm._v(" "),
         _c("input", {
-          directives: [
-            {
-              name: "validate",
-              rawName: "v-validate",
-              value: "required|image",
-              expression: "'required|image'"
-            }
-          ],
           staticClass: "input file-input",
-          attrs: { name: "image", type: "file", accept: "image/*" },
-          on: { change: _vm.onFileChange }
+          attrs: {
+            name: "image",
+            type: "file",
+            accept: "image/*",
+            disabled: ""
+          }
         }),
         _vm._v(" "),
-        _c("img", { staticClass: "image", attrs: { src: _vm.image } }),
-        _vm._v(" "),
-        _c(
-          "span",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.errors.has("image"),
-                expression: "errors.has('image')"
-              }
-            ],
-            staticClass: "message error"
-          },
-          [_vm._v(_vm._s(_vm.errors.first("image")))]
-        )
+        _c("img", { staticClass: "image", attrs: { src: _vm.image } })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form" }, [

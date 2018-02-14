@@ -100,7 +100,23 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'product_name' => 'required',
+            'product_description' => 'required|min:30',
+            'product_price' => 'required|numeric',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors'=>$validator->errors()]);
+        } else {
+            $product->name = $request->input('product_name');
+            $product->description = $request->input('product_description');
+            $product->price = $request->input('product_price');
+
+            $product->update();
+            //TODO: show a flash message
+            return ['id' => $product->id];
+        }
     }
 
     /**

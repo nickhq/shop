@@ -22,13 +22,11 @@
         <label for="file">Product Image</label>
         <div class="form file-drop-area">
             
-            <span class="btn btn-file">Choose files</span>
+            <span class="btn btn-disabled btn-file">Choose files</span>
             <input name="image" class="input file-input" type="file" 
-            v-on:change="onFileChange"
             accept="image/*"
-            v-validate="'required|image'">
+           disabled>
             <img :src="image" class="image">
-        <span v-show="errors.has('image')" class="message error">{{ errors.first('image') }}</span>
         </div>
             
         <div class="form">
@@ -105,13 +103,13 @@
                     product_description: this.description
 
                     }).then(response => {
-                        let productId = response.data.id;
-                        
-                        window.location = `/products/${productId}`
+                       
+                        console.log(response.data);
+                        window.location = `/products/${this.product.id}`
                 });
             },
             setData(){
-                console.log(this.product)
+                console.log(this.product.id)
                 this.name = this.product.name;
                 this.price = this.product.price;
                 this.image = `${window.location.origin}/uploads/${this.product.image}`;
@@ -124,5 +122,10 @@
 .image{
     max-width: 100%;
     max-height: 100px;
+}
+.btn-disabled{
+    background-color: #ccc;
+    cursor: not-allowed !important;
+    box-shadow: none;
 }
 </style>
