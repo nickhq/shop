@@ -18,7 +18,7 @@
                     <div class="card-image" style=" background-image: url({{asset('uploads')}}/{{ $product->image }});">
                     </div>
                     <div class="card-content">
-                        <button class="card-fab fab"><i class="mdi mdi-cart-plus"></i></button>
+                        <button class="card-fab fab"><i class="mdi mdi-chevron-right"></i></button>
                         <div class="card-title">{{ $product->name }}</div>
                         <p class="card-text">{{ str_limit($product->description, 100, $end = '...') }}</p>
                         <p><b>Ksh</b> {{ $product->price }}</p>
