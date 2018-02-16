@@ -1,7 +1,7 @@
 # shop
 Advanta Africa Job Interview stage 1
 
-This repo showcases a simplified e-commerce application. It's made in accordance to the requirements by
+This repo showcases a simple CRUD application. It's made in accordance to the requirements by
 Advanta Africa for the Stage One of A Job Interview
 
 ## Technologies Tools Used
@@ -11,7 +11,7 @@ Advanta Africa for the Stage One of A Job Interview
 - CSS
 - HTML
 
-I use [VS Code](https://code.visualstudio.com) as my primary editor
+I use [VS Code](https://code.visualstudio.com) as my primary editor of choice
 
 ## Setting Up
 > Ensure that you have PHP(obviously), composer, mysql and NodeJs installed on your computer.
