@@ -5,12 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
+    {{-- CSRF Token -- }}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title') | {{ config('app.name') }}</title>
 
-    <!-- Styles -->
+    {{-- material design icons css --}}
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
+    {{-- Styles --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -20,7 +22,7 @@
         @yield('content')
     </main>
 </div>
-<!-- Scripts -->
+{{-- Scripts --}}
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
