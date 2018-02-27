@@ -1,5 +1,5 @@
 <nav>
     <a class="logo" href="{{ route('products.index') }}">The Shop</a>
-    <a href="#">About</a>
+    <a href="{{ route('about') }}">About</a>
 </nav>
 <br>

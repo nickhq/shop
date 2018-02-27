@@ -17,3 +17,7 @@ Route::get('/', function () {
 
 Route::resource('products', 'ProductController');
 
+
+Route::get('about', function() {
+    return view('about');
+})->name('about');
