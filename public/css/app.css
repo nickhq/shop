@@ -808,16 +808,6 @@ textarea {
   background-color: rgba(204, 204, 204, 0.05);
 }
 
-.mock-btn {
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-  padding: 8px 15px;
-  margin-right: 8px;
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
 .file-msg {
   font-size: small;
   font-weight: 300;
@@ -841,5 +831,15 @@ textarea {
 
 .file-input:focus {
   outline: none;
+}
+
+a.primary {
+  text-decoration: none;
+  color: #3498db;
+  position: relative;
+}
+
+a.primary:hover {
+  text-decoration: underline;
 }
 
