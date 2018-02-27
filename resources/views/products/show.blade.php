@@ -5,7 +5,7 @@
 @section('content')
 
 
-    <div class="content">
+    <div id="app" class="content">
         <div class="product">
             <div class="product-image">
                 <img src="{{ asset('uploads') }}/{{ $product->image }}" alt="Product Image">

@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="clearfix">
+    <div id="app" class="clearfix">
         <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
         <h1>Our Products
             <a class="to-right btn" href="{{ route('products.create') }}">Add Product</a>
