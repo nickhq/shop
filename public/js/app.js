@@ -19199,11 +19199,18 @@ window.Vue = __webpack_require__(3);
 
 
 var app = new Vue({
-  el: '#app',
-  components: {
-    'create-product': __WEBPACK_IMPORTED_MODULE_0__components_CreateProduct___default.a,
-    'edit-product': __WEBPACK_IMPORTED_MODULE_1__components_EditProduct___default.a
-  }
+    el: '#app',
+    components: {
+        'create-product': __WEBPACK_IMPORTED_MODULE_0__components_CreateProduct___default.a,
+        'edit-product': __WEBPACK_IMPORTED_MODULE_1__components_EditProduct___default.a
+    },
+    methods: {
+        deleteProduct: function deleteProduct(e) {
+            var state = confirm('Are you sure you want to delete this product?');
+            console.log(state);
+            if (!state) e.preventDefault();
+        }
+    }
 });
 
 /***/ }),

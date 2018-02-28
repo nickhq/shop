@@ -24,5 +24,13 @@ const app = new Vue({
     components: {
         'create-product': CreateProduct,
         'edit-product': EditProduct,
+    },
+    methods: {
+        deleteProduct(e){
+         let state = confirm('Are you sure you want to delete this product?')
+         console.log(state)
+         if(!state)
+            e.preventDefault()
+        }
     }
 });

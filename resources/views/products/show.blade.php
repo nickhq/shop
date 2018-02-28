@@ -17,11 +17,12 @@
                     <a href="{{ route('products.edit', ['product' => $product->id ]) }}" class="btn">Edit <span
                                 class="mdi mdi-pencil"></span></a>
                     <form class="form-inline" action="{{ route('products.destroy', ['id' => $product->id]) }}"
-                          method="post">
+                          method="post"
+                          v-on:submit="deleteProduct">
                         {{ csrf_field() }}
                         {{--  lets pretend that we are sending a DELETE request  --}}
                         <input type="hidden" name="_method" value="DELETE">
-                        <button type="submit" class="btn"><span class="mdi mdi-delete"></span> Delete</button>
+                        <button type="submit" class="btn btn-red"><span class="mdi mdi-delete"></span> Delete</button>
                     </form>
 
 
