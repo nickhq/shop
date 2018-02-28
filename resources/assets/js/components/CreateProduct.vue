@@ -25,7 +25,7 @@
             <span class="btn btn-file">Choose files</span>
             <input id="file" name="image" class="input file-input" type="file"
                    v-on:change="onFileChange"
-                   accept="image/*"
+                   accept="image/png,image/jpeg,image/jpg"
                    v-validate="'required|image'">
             <img :src="image" class="image">
             <span v-show="errors.has('image')" class="message error">{{ errors.first('image') }}</span>
@@ -48,70 +48,73 @@
 </template>
 
 <script>
-    import VeeValidate from 'vee-validate'
-    import Vue from 'vue';
+import VeeValidate from "vee-validate";
+import Vue from "vue";
 
-    Vue.use(VeeValidate);
-    export default {
-        data() {
-            return {
-                name: '',
-                price: '',
-                image: null,
-                description: ''
-            }
-        },
-        mounted() {
-            console.log('Component mounted.')
-        },
-        methods: {
-            validateBeforeSubmit() {
-                this.$validator.validateAll().then((result) => {
-                    if (result) {
-                        //TODO: add toast message
+Vue.use(VeeValidate);
+export default {
+  data() {
+    return {
+      name: "",
+      price: "",
+      image: null,
+      description: ""
+    };
+  },
+  mounted() {
+    console.log("Component mounted.");
+  },
+  methods: {
+    validateBeforeSubmit() {
+      this.$validator.validateAll().then(result => {
+        if (result) {
+          //TODO: add toast message
 
-                        this.submit()
-                        return
-                    }
-
-                    alert('Correct them errors!')
-                })
-            },
-            onFileChange(e) {
-                let files = e.target.files
-                if (!files.length)
-                    return
-
-                this.readFile(files[0])
-            },
-            readFile(file) {
-                let reader = new FileReader()
-                reader.onload = (e) => {
-                    this.image = e.target.result
-
-                };
-                reader.readAsDataURL(file)
-
-            },
-            submit() {
-                axios.post('/products', {
-                    product_image: this.image,
-                    product_name: this.name,
-                    product_price: this.price,
-                    product_description: this.description
-
-                }).then(response => {
-                    let productId = response.data.id;
-
-                    window.location = `/products/${productId}`
-                });
-            },
+          this.submit();
+          return;
         }
+
+        alert("Correct them errors!");
+      });
+    },
+    onFileChange(e) {
+      let files = e.target.files;
+      if (!files.length) return;
+
+      this.readFile(files[0]);
+    },
+    readFile(file) {
+      let reader = new FileReader();
+      reader.onload = e => {
+        this.image = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    submit() {
+      axios
+        .post("/products", {
+          product_image: this.image,
+          product_name: this.name,
+          product_price: this.price,
+          product_description: this.description
+        })
+        .then(response => {
+         // console.log(response);
+          if (response.data.errors) {
+              alert('Invalid Image Type');
+          } else {
+            let productId = response.data.id;
+
+            window.location = `/products/${productId}`
+          }
+        });
     }
+  }
+};
 </script>
 <style scooped>
-    .image {
-        max-width: 100%;
-        max-height: 100px;
-    }
+.image {
+  max-width: 100%;
+  max-height: 100px;
+}
 </style>

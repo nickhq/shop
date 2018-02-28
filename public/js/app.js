@@ -39804,7 +39804,7 @@ exports = module.exports = __webpack_require__(10)(false);
 
 
 // module
-exports.push([module.i, "\n.image {\n    max-width: 100%;\n    max-height: 100px;\n}\n", ""]);
+exports.push([module.i, "\n.image {\n  max-width: 100%;\n  max-height: 100px;\n}\n", ""]);
 
 // exports
 
@@ -39906,62 +39906,66 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_0_vee_validate__["a" /* default */]);
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            name: '',
-            price: '',
-            image: null,
-            description: ''
-        };
-    },
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    },
+  data: function data() {
+    return {
+      name: "",
+      price: "",
+      image: null,
+      description: ""
+    };
+  },
+  mounted: function mounted() {
+    console.log("Component mounted.");
+  },
 
-    methods: {
-        validateBeforeSubmit: function validateBeforeSubmit() {
-            var _this = this;
+  methods: {
+    validateBeforeSubmit: function validateBeforeSubmit() {
+      var _this = this;
 
-            this.$validator.validateAll().then(function (result) {
-                if (result) {
-                    //TODO: add toast message
+      this.$validator.validateAll().then(function (result) {
+        if (result) {
+          //TODO: add toast message
 
-                    _this.submit();
-                    return;
-                }
-
-                alert('Correct them errors!');
-            });
-        },
-        onFileChange: function onFileChange(e) {
-            var files = e.target.files;
-            if (!files.length) return;
-
-            this.readFile(files[0]);
-        },
-        readFile: function readFile(file) {
-            var _this2 = this;
-
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                _this2.image = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        },
-        submit: function submit() {
-            axios.post('/products', {
-                product_image: this.image,
-                product_name: this.name,
-                product_price: this.price,
-                product_description: this.description
-
-            }).then(function (response) {
-                var productId = response.data.id;
-
-                window.location = '/products/' + productId;
-            });
+          _this.submit();
+          return;
         }
+
+        alert("Correct them errors!");
+      });
+    },
+    onFileChange: function onFileChange(e) {
+      var files = e.target.files;
+      if (!files.length) return;
+
+      this.readFile(files[0]);
+    },
+    readFile: function readFile(file) {
+      var _this2 = this;
+
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        _this2.image = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    submit: function submit() {
+      axios.post("/products", {
+        product_image: this.image,
+        product_name: this.name,
+        product_price: this.price,
+        product_description: this.description
+      }).then(function (response) {
+        // console.log(response);
+        if (response.data.errors) {
+          alert('Invalid Image Type');
+        } else {
+          var productId = response.data.id;
+
+          window.location = "/products/" + productId;
+        }
+      });
     }
+  }
 });
 
 /***/ }),
@@ -40357,7 +40361,12 @@ var render = function() {
             }
           ],
           staticClass: "input file-input",
-          attrs: { id: "file", name: "image", type: "file", accept: "image/*" },
+          attrs: {
+            id: "file",
+            name: "image",
+            type: "file",
+            accept: "image/png,image/jpeg,image/jpg"
+          },
           on: { change: _vm.onFileChange }
         }),
         _vm._v(" "),
