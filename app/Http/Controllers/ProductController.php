@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -126,6 +127,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        $image = $product->image;
+        File::delete('uploads/'. $image);
         $product->delete();
         //TODO: flash a message
         return redirect()->route('products.index');
