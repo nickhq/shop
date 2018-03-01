@@ -18,6 +18,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "mdi": "^2.1.19",
         "vee-validate": "^2.0.3"
     }
 }
